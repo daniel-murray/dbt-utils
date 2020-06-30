@@ -14,7 +14,15 @@ should be made against this branch
 
 
 ## Release checklist
-When creating a new release, check that:
-- [ ] The `require-dbt-version` config has been incremented, e.g. `">=0.17.0"`
-- [ ] The dbt version in [run_test.sh](run_test) should be incremented `pip install  "dbt>=0.17.0,<0.18.0"`
-- [ ] The release number matches the dbt major and minor release, e.g. `0.17.0`
+When creating a new release
+1. Check if there were any patch releases. If so, make sure you rebase the active branch onto the latest release.
+
+2. Create a new PR that ensures that:
+  - [ ] The `require-dbt-version` config has been incremented, e.g. `">=0.17.0"`
+  - [ ] The dbt version in [run_test.sh](run_test) should be incremented `pip install  "dbt>=0.17.0,<0.18.0"`
+  - [ ] The release number matches the dbt major and minor release, e.g. `0.17.0`
+  - [ ] The [changelog](CHANGELOG.md) is updated
+
+3. Create the release
+
+4. Create a new branch for the next release, named `dev/0.18.0`, and make it the default branch
